@@ -1,7 +1,10 @@
 package com.example.iliamaltsev.exercise_one;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -17,6 +20,8 @@ public class SecondActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         SplitAnimation.prepareAnimation(this);
         setContentView(R.layout.activity_second);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         SplitAnimation.animate(this, 1500);
         final ImageView imageView=(ImageView)findViewById(R.id.image);
         imageView.setImageResource(R.drawable.two);
@@ -43,8 +48,24 @@ public class SecondActivity extends AppCompatActivity{
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
     protected void onStop() {
         SplitAnimation.cancel();
         super.onStop();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                Intent homeIntent = new Intent(this, MainActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
     }
 }

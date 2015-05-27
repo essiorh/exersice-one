@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         Button button_one=(Button)findViewById(R.id.button_one);
         Button button_two=(Button)findViewById(R.id.button_two);
         button_one.setText(getString(R.string.goto_)+" "+getString(R.string.second_activity));
