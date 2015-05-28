@@ -18,11 +18,12 @@ public class SecondActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SplitAnimation.prepareAnimation(this);
+        //This code for animation
+        //SplitAnimation.prepareAnimation(this);
         setContentView(R.layout.activity_second);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        SplitAnimation.animate(this, 1500);
+        //This code for animation
+        //SplitAnimation.animate(this, 1500);
         final ImageView imageView=(ImageView)findViewById(R.id.image);
         imageView.setImageResource(R.drawable.two);
         final RadioGroup radioGroup=(RadioGroup) findViewById(R.id.radioGroup);
@@ -55,7 +56,7 @@ public class SecondActivity extends AppCompatActivity{
 
     @Override
     protected void onStop() {
-        SplitAnimation.cancel();
+        //SplitAnimation.cancel();
         super.onStop();
     }
     @Override
